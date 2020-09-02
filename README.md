@@ -42,6 +42,18 @@ Another command-line hex viewer
 
 ![rhex](shot/shot6.png "rhex")
 
+```bash
+    rhex binary_file.pdf | command
+```
+
+![rhex](shot/shot7.png "rhex")
+
+```bash
+    rhex -b 10 path/to/file # bytes per line
+```
+
+![rhex](shot/shot8.png "rhex")
+
 
 ### Build
 
