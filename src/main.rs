@@ -21,7 +21,7 @@ fn cli() -> ArgMatches {
     App::new(NAME)
         .version(VERSION)
         .author(AUTHOR)
-        .about("simple hex viewer")
+        .about("Another command-line hex viewer")
         .arg(Arg::with_name("file")
             .about("File path")
             .required(false)
@@ -62,11 +62,11 @@ fn read<T: Read>(mut reader: BufReader<T>, bytes: usize) -> Result {
     while let Ok(r) = reader.read(&mut buffer) {
         if r == 0 { break; }
 
-        let idx = format!("{:0>8X}", index).green().bold();
+        let idx = format!("{:0>8X} ", index).green().bold();
 
         let hex = buffer
             .iter()
-            .map(|c| format!("{:<3}", format!("{:0<2X}", c)))
+            .map(|c| format!("{:<3}", format!("{:0>2X}", c)))
             .collect::<String>();
 
         let data = buffer
@@ -91,14 +91,14 @@ fn read<T: Read>(mut reader: BufReader<T>, bytes: usize) -> Result {
 
 fn escape(c: u8) -> Vec<u8> {
     match c {
-        0 => vec![0, 0],
+        0 => vec![],
         b'\t' => vec![b'\\', b't'],
         b'\r' => vec![b'\\', b'r'],
         b'\n' => vec![b'\\', b'n'],
         b'\\' => vec![b'\\', b'\\'],
         b'\'' => vec![b'\\', b'\''],
         // b'"' => vec![b'\\', b'"'],
-        b'\x20'..=b'\x7e' => vec![c, 0],
-        _ => vec![b'.', 0]
+        b'\x20'..=b'\x7e' => vec![c],
+        _ => vec![b'.']
     }
 }
