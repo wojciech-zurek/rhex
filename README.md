@@ -34,7 +34,7 @@ Another command-line hex viewer
     rhex | command
 ```
 
-![rhex](shot/shot6.png "rhex")
+![rhex](shot/shot5.png "rhex")
 
 ```bash
     command | rhex | command
