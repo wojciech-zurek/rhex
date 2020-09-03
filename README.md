@@ -2,7 +2,26 @@
 
 Another command-line hex viewer
 
-### Example
+### Install
+
+```
+sudo wget https://github.com/wojciech-zurek/rhex/releases/download/v0.1.0/rhex -O /usr/local/bin/rhex
+sudo chmod +x /usr/local/bin/rhex
+```
+
+### Build
+
+```bash
+    ./build.sh
+```
+
+### Cross build
+
+```bash
+    ./cross_build.sh
+```
+
+### Example usage
 
 ```bash
     rhex path/to/file
@@ -53,10 +72,3 @@ Another command-line hex viewer
 ```
 
 ![rhex](shot/shot8.png "rhex")
-
-
-### Build
-
-```bash
-    ./build.sh
-```
